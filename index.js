@@ -1,7 +1,7 @@
 // let http = require('http')
 let express = require('express')
 let bodyParse = require('body-parser')
-
+const path=require('path')
 const app=express();
 
 
@@ -15,7 +15,8 @@ app.use(shopRoutes)
 
 //404 Page
 app.use((req,res,next)=>{
-    res.status(404).send('<h1>Page Not Found</h1>')
+    res.sendFile(path.join(__dirname,'views','404-page.html'))
+    // res.status(404).send('<h1>Page Not Found</h1>')
 })
 
 // app.use('/add-product',(req,res,next)=>{
